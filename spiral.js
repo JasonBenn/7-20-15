@@ -1,4 +1,5 @@
-import { is, List, Range, Repeat } from 'immutable'
+import { test } from 'tape'
+import { is, fromJS, List, Range, Repeat } from 'immutable'
 
 const cycle = (toCycle) => { 
   let i = 0
@@ -32,7 +33,17 @@ const getSpiralPoints = (gridSize) => {
   }, List())
 }
 
-console.log(getSpiralPoints(0))
-console.log(getSpiralPoints(1))
-console.log(getSpiralPoints(2))
-console.log(getSpiralPoints(3))
+if (require.main === module) {
+  test('getSpiralPoints', t => {
+    const testCases = [
+      [0, []],
+      [1, [[0,0]]],
+      [2, [[0,0],[0,1],[1,1]]],
+      [3, [[0,0],[0,1],[0,2],[1,2],[2,2],[2,1]]],
+    ]
+    t.plan(testCases.length)
+    testCases.forEach(([gridSize, expectedResult]) => {
+      t.ok(is(fromJS(getSpiralPoints(gridSize).toArray()), fromJS(expectedResult)))
+    })
+  })
+}
