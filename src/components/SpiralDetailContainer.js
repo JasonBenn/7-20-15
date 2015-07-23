@@ -9,12 +9,27 @@ export class SpiralDetailContainer extends React.Component {
     $.get('/api/spirals/1').done(data => this.setState(() => camelizeKeys(data)))
   }
 
+  saveCanvas = (e) => {
+    e.preventDefault()
+    const formData = new FormData();
+    const image = this.refs.canvas.getImage()
+    const args = this.refs.form.serialize()
+    formData.append('image', image)
+    formData.append('args', JSON.stringify(args))
+    const req = new XMLHttpRequest()
+    req.open('POST', 'http://localhost:4567/api/spirals')
+    req.send(formData)
+
+    // To test serialize, comment the above and uncomment this:
+    // const args = this.refs.form.serialize()
+    // console.log('saveCanvas', args)
+  }
+
   render() {
-    console.log(this.state)
     return (
       <div>
-        <SpiralCanvas {...this.state}></SpiralCanvas>
-        <SpiralForm></SpiralForm>
+        <SpiralCanvas ref='canvas' {...this.state}></SpiralCanvas>
+        <SpiralForm ref='form' {...this.state} onSubmit={this.saveCanvas}></SpiralForm>
       </div>
     )
   }

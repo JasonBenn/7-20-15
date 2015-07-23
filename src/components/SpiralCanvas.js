@@ -45,22 +45,19 @@ export class SpiralCanvas extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const $el = React.findDOMNode(this)
-    const ctx = $el.getContext('2d')
+    this.$el = React.findDOMNode(this)
+    const ctx = this.$el.getContext('2d')
     this.paint(ctx)    
   }
 
   componentDidMount() {
-    const $el = React.findDOMNode(this)
-    const ctx = $el.getContext('2d')
+    this.$el = React.findDOMNode(this)
+    const ctx = this.$el.getContext('2d')
     this.paint(ctx)
+  }
 
-    // const formData = new FormData();
-    // const image = $el.toDataURL("image/png");
-    // formData.append('image', image)
-    // const req = new XMLHttpRequest()
-    // req.open('POST', 'http://localhost:4567/api/spirals')
-    // req.send(formData)
+  getImage() {
+    return this.$el.toDataURL("image/png");
   }
 
   render() {
