@@ -9,6 +9,8 @@ configure do
 end
 
 namespace '/api' do
+  # db = SQLite3::Database.new("db/development.db")
+
   get '/spirals/:id' do
     content_type :json
     {
@@ -21,9 +23,17 @@ namespace '/api' do
     }.to_json
   end
 
+  get '/spirals'
+    # db.execute( "select * from spirals" ) do |row|
+    # return array of { image_url, id, email }
+  end
+
   post '/spirals' do
     uri = URI::Data.new(params['image'])
+    puts JSON.parse(params['args']).inspect
     File.write("images/#{Time.now}.png", uri.data)
+    # Grab image_url from ^ if operation successful
+    # Save into db: { email, thickness, size, color, image_url }, with autoincremented id
     204
   end
 end
