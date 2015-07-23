@@ -1,0 +1,7 @@
+canvas {
+  border: 1px solid black;
+  width: 50%;
+  // Hack, to keep it square.
+  height: 0;
+  padding-bottom: 50%;
+}
