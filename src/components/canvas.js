@@ -26,6 +26,13 @@ export class Canvas extends React.Component {
       ctx.lineTo((col * widthScaleFactor) + topLeftX, (row * heightScaleFactor) + topLeftY)
     })
     ctx.stroke()
+
+    const formData = new FormData();
+    const image = $el.toDataURL("image/png");
+    formData.append('image', image)
+    const req = new XMLHttpRequest()
+    req.open('POST', 'http://localhost:4567/api/spirals')
+    req.send(formData)
   }
 
   render() {
