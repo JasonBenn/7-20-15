@@ -27,6 +27,13 @@ module.exports = {
     filename: "bundle.js"
   },
 
+  devServer: {
+    proxy: {
+      '/api/*': 'http://localhost:4567/',
+      headers: { "Access-Control-Allow-Origin": "*" }
+    }
+  },
+
   node: {
     fs: 'empty' // fixes "Cannot resolve module 'fs' error"
   }
