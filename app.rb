@@ -23,7 +23,7 @@ namespace '/api' do
     }.to_json
   end
 
-  get '/spirals'
+  get '/spirals' do
     # db.execute( "select * from spirals" ) do |row|
     # return array of { image_url, id, email }
   end
