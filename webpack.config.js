@@ -6,7 +6,7 @@ module.exports = {
       { 
         test: /\.js$/, 
         exclude: /node_modules/,
-        loader: 'babel' 
+        loader: 'babel?stage=0' 
       }, { 
         test: /\.scss/,
         loader: 'style-loader!css-loader!sass-loader' 
