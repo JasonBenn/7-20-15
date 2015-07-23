@@ -24,6 +24,7 @@ SpiralDetailContainer // GETs /spirals/:id
 ### TODO:
 
 * Possibly the presentation concern in SpiralDetailContainer into SpiralDetail? https://gist.github.com/chantastic/fc9e3853464dffdb1e3c
+* Create scratch route - for testing components in isolation.
 * Add ReactRouter
 * Finish writing serialize() for SpiralForm.
 * Name the saved images something guaranteed to be unique given the inputs.
