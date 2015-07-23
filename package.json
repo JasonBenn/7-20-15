@@ -4,7 +4,9 @@
   "description": "",
   "main": "spiral.js",
   "dependencies": {
+    "camelcase": "^1.1.0",
     "immutable": "^3.7.4",
+    "jquery": "^2.1.4",
     "react": "^0.13.3",
     "tape": "^4.0.1"
   },
