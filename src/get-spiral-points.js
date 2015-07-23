@@ -26,7 +26,7 @@ const nextMoves = [
   moveUp
 ].map(fn => withDefault(fn, [0, 0]))
 
-const getSpiralPoints = (gridSize) => {
+export const getSpiralPoints = (gridSize) => {
   const getNextMove = cycle(nextMoves)
   return Range(gridSize, 0, -1).reduce((spiralPoints, currentEdgeLength) => {
     return Repeat(getNextMove(), currentEdgeLength).reduce(applyAndAppend, spiralPoints)
