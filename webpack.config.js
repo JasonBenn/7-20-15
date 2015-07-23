@@ -17,10 +17,13 @@ module.exports = {
     ]
   },
 
-  entry: './src/app.js',
+  entry: {
+    app: ['webpack/hot/dev-server', './src/app.js']
+  },
 
   output: {
-    path: __dirname + "/public",
+    path: "./build",
+    publicPath: "/assets/",
     filename: "bundle.js"
   },
 
