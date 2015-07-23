@@ -1,4 +1,4 @@
 import { fromJS } from 'immutable'
 import camelCase from 'camelcase'
 
-export const camelizeKeys = (any) => fromJS(any).mapKeys(camelCase).toJS()
+export const camelizeKeys = (obj) => fromJS(obj).mapKeys(camelCase).toJS()

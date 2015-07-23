@@ -11,10 +11,10 @@ export class SpiralForm extends React.Component {
   render() {
     return (
       <form action="/api/spirals" method="POST" encType="multipart/form-data" onSubmit={this.props.onSubmit}>
-        <TextInput initialValue={this.props.email} name="email" />
-        <TextInput initialValue={this.props.thickness} name="thickness" />
-        <TextInput initialValue={this.props.gridSize} name="gridSize" />
-        <TextInput initialValue={this.props.color} name="color" />
+        <TextInput patch={this.props.patch} value={this.props.email} name="email" />
+        <TextInput patch={this.props.patch} value={this.props.thickness} name="thickness" />
+        <TextInput patch={this.props.patch} value={this.props.gridSize} name="gridSize" />
+        <TextInput patch={this.props.patch} value={this.props.color} name="color" />
         <input type="submit" value="Save" />
       </form>
     )

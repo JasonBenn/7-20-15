@@ -25,11 +25,16 @@ export class SpiralDetailContainer extends React.Component {
     // console.log('saveCanvas', args)
   }
 
+  patch = (attrs) => {
+    // persist to backend?
+    this.setState(attrs)
+  }
+
   render() {
     return (
       <div>
         <SpiralCanvas ref='canvas' {...this.state}></SpiralCanvas>
-        <SpiralForm ref='form' {...this.state} onSubmit={this.saveCanvas}></SpiralForm>
+        <SpiralForm patch={this.patch} ref='form' {...this.state} onSubmit={this.saveCanvas}></SpiralForm>
       </div>
     )
   }
