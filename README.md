@@ -1,3 +1,11 @@
+### Getting set up
+`npm install`
+`bundle install`
+
+### Running
+`webpack-dev-server --hot`
+`ruby app.rb`
+
 ### Component outline:
 ```
 // Index page:
