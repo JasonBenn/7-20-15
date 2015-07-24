@@ -14,17 +14,17 @@ const compareArrays = (a, b) => is(List(a), List(b))
 // If the *only* argument passed to fn is undefined, instead return defaultValue.
 const withDefault = (fn, defaultValue) => (...args) => compareArrays(args, [undefined]) ? defaultValue : fn(...args)
 
-const moveRight = ([row, col]) => [row, col + 1]
-const moveDown = ([row, col]) => [row + 1, col]
-const moveLeft = ([row, col]) => [row, col - 1]
-const moveUp = ([row, col]) => [row - 1, col]
+const moveRight = ([row, col]) => List([row, col + 1])
+const moveDown = ([row, col]) => List([row + 1, col])
+const moveLeft = ([row, col]) => List([row, col - 1])
+const moveUp = ([row, col]) => List([row - 1, col])
 
 const nextMoves = [
   moveRight,
   moveDown,
   moveLeft,
   moveUp
-].map(fn => withDefault(fn, [0, 0]))
+].map(fn => withDefault(fn, List([0, 0])))
 
 export const getSpiralPoints = (gridSize) => {
   const getNextMove = cycle(nextMoves)
@@ -43,7 +43,7 @@ if (require.main === module) {
     ]
     t.plan(testCases.length)
     testCases.forEach(([gridSize, expectedResult]) => {
-      t.ok(is(fromJS(getSpiralPoints(gridSize).toArray()), fromJS(expectedResult)))
+      t.ok(is(fromJS(getSpiralPoints(gridSize)), fromJS(expectedResult)))
     })
   })
 }
