@@ -3,10 +3,6 @@ import $ from 'jquery'
 import {TextInput} from './TextInput'
 
 export class SpiralForm extends React.Component {
-  serialize() {
-    // Grab each child's state (using refs?), merge into one object. Meanwhile, placeholder:
-    return { email: 'sup' }
-  }
   static fields = ['email', 'thickness', 'gridSize', 'color']
 
   render() {

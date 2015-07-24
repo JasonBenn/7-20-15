@@ -30,7 +30,7 @@ namespace '/api' do
 
   post '/spirals' do
     uri = URI::Data.new(params['image'])
-    puts JSON.parse(params['args']).inspect
+    puts params
     File.write("images/#{Time.now}.png", uri.data)
     # Grab image_url from ^ if operation successful
     # Save into db: { email, thickness, size, color, image_url }, with autoincremented id
