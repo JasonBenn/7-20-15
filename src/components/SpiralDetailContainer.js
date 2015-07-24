@@ -9,7 +9,7 @@ export class SpiralDetailContainer extends React.Component {
     $.get('/api/spirals/1').done(data => this.setState(() => camelizeKeys(data)))
   }
 
-  saveCanvas = (e) => {
+  save = (e) => {
     e.preventDefault()
     const formData = new FormData();
     const image = this.refs.canvas.getImage()
@@ -34,7 +34,7 @@ export class SpiralDetailContainer extends React.Component {
     return (
       <div>
         <SpiralCanvas ref='canvas' {...this.state}></SpiralCanvas>
-        <SpiralForm patch={this.patch} ref='form' {...this.state} onSubmit={this.saveCanvas}></SpiralForm>
+        <SpiralForm onFieldChange={this.patch} {...this.state} onSubmit={this.save}></SpiralForm>
       </div>
     )
   }

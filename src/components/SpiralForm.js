@@ -7,14 +7,14 @@ export class SpiralForm extends React.Component {
     // Grab each child's state (using refs?), merge into one object. Meanwhile, placeholder:
     return { email: 'sup' }
   }
+  static fields = ['email', 'thickness', 'gridSize', 'color']
 
   render() {
     return (
       <form action="/api/spirals" method="POST" encType="multipart/form-data" onSubmit={this.props.onSubmit}>
-        <TextInput patch={this.props.patch} value={this.props.email} name="email" />
-        <TextInput patch={this.props.patch} value={this.props.thickness} name="thickness" />
-        <TextInput patch={this.props.patch} value={this.props.gridSize} name="gridSize" />
-        <TextInput patch={this.props.patch} value={this.props.color} name="color" />
+        {this.constructor.fields.map((field, i) => {
+          return <TextInput onChange={this.props.onFieldChange} value={this.props[field]} name={field} key={i} />
+        })}
         <input type="submit" value="Save" />
       </form>
     )
