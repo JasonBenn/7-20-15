@@ -2,12 +2,12 @@ import React from 'react';
 import http from '../http'
 import { SpiralCanvas } from './SpiralCanvas'
 import { SpiralForm } from './SpiralForm'
-import { camelizeKeys } from '../utils'
+import { parseSpiralData } from '../utils'
 
 export class SpiralDetailContainer extends React.Component {
   componentDidMount() {
     // dynamic id...
-    http.get('/api/spirals/1').done(data => this.setState(() => camelizeKeys(data)))
+    http.get('/api/spirals/1').done(data => this.setState(() => parseSpiralData(data)))
   }
 
   save = (e) => {
