@@ -27,5 +27,3 @@ SpiralDetailContainer // GETs /spirals/:id
 * Add ReactRouter
 * Finish writing serialize() for SpiralForm.
 * Name the saved images by record ID.
-* Actually persist objects to a database in app.rb.
-* Reduce duplication in SpiralCanvas between componentDidUpdate & componentDidMount?
