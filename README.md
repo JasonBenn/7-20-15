@@ -29,19 +29,3 @@ SpiralDetailContainer // GETs /spirals/:id
 * Name the saved images by record ID.
 * Actually persist objects to a database in app.rb.
 * Reduce duplication in SpiralCanvas between componentDidUpdate & componentDidMount?
-* Write simple Rails-style db tasks like db:create and db:migrate.
-
-```
-db = SQLite3::Database.new("db/development.db")
-create_spirals_table = <<SQL
-create table spirals (
-  id INTEGER PRIMARY KEY,
-  email TEXT,
-  thickness INTEGER,
-  grid_size INTEGER,
-  color TEXT,
-  image_url TEXT
-)
-SQL
-db.execute(create_spirals_table)
-```
