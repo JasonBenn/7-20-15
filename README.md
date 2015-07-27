@@ -23,7 +23,6 @@ SpiralDetailContainer // GETs /spirals/:id
 
 ### TODO:
 
-* Name the saved images by record ID.
 * Add ReactRouter
 * Fix grody fields in SpiralForm.
 * Create scratch route - for testing components in isolation.
