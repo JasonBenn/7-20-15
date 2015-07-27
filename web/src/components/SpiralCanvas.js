@@ -15,42 +15,58 @@ export class SpiralCanvas extends React.Component {
   static defaultProps = {
     height: 500,
     width: 500,
-    lineWidth: 1,
-    gridSize: 12,
+    lineWidth: 2,
+    gridSize: 5,
     color: 'black'
   }
 
-  paint(ctx) {
+  paddingRatio = .1
+  getSpiralTopLeft() {
+    const topLeftX = this.props.width * this.paddingRatio
+    const topLeftY = this.props.height * this.paddingRatio
+    return [topLeftX, topLeftY]
+  }
+
+  getWidthAndHeightScaleFactors() {
+    return ['width', 'height'].map(dim => {
+      const spiralLengthAlongDim = this.props[dim] * (1 - this.paddingRatio * 2)
+      return spiralLengthAlongDim / this.props.gridSize
+    })
+  }
+
+  clearCanvas(ctx) {
     ctx.clearRect(0, 0, this.props.height, this.props.width)
+  }
+
+  paint(ctx) {
+    this.clearCanvas(ctx)
     ctx.strokeStyle = this.props.color;
     ctx.lineWidth = this.props.lineWidth
-
-    const paddingRatio = .1
-    const spiralHeight = this.props.height * (1 - paddingRatio * 2)
-    const spiralWidth = this.props.width * (1 - paddingRatio * 2)
-    const topLeftX = this.props.width * paddingRatio
-    const topLeftY = this.props.height * paddingRatio
-    const heightScaleFactor = spiralHeight / this.props.gridSize
-    const widthScaleFactor = spiralWidth / this.props.gridSize
-
     ctx.beginPath()
     ctx.moveTo(topLeftX, topLeftY)
+
+    const [topLeftX, topLeftY] = this.getSpiralTopLeft()
+    const [widthScaleFactor, heightScaleFactor] = this.getWidthAndHeightScaleFactors()
+
     getSpiralPoints(this.props.gridSize).forEach(([row, col]) => {
       ctx.lineTo(
         (col * widthScaleFactor) + topLeftX,
         (row * heightScaleFactor) + topLeftY
       )
     })
+
     ctx.stroke()
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    this.$el = React.findDOMNode(this)
-    const ctx = this.$el.getContext('2d')
-    this.paint(ctx)
+  componentDidUpdate() {
+    this.unfurl()
   }
 
   componentDidMount() {
+    this.unfurl()
+  }
+
+  unfurl() {
     this.$el = React.findDOMNode(this)
     const ctx = this.$el.getContext('2d')
     this.paint(ctx)
