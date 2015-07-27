@@ -1,6 +1,8 @@
 ### Getting set up
-`cd web && npm install`
-`cd api && bundle install`
+```
+cd web && npm install
+cd api && bundle install
+```
 
 ### Running
 `foreman start`
@@ -22,6 +24,8 @@ SpiralDetailContainer // GETs /spirals/:id
 
 ### TODO:
 
-* Fix grody fields in SpiralForm.
+* Make React Router work
+* Implement ThumbnailGridContainer
 * Create scratch route - for testing components in isolation.
+* Improve grody `fields` in SpiralForm?
 * Validate inputs before state change
