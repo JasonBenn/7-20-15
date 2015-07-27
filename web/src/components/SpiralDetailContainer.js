@@ -6,13 +6,14 @@ import { parseSpiralData } from '../utils'
 
 export class SpiralDetailContainer extends React.Component {
   componentDidMount() {
-    // dynamic id...
-    http.get('/api/spirals/1').done(data => this.setState(() => parseSpiralData(data)))
+    http.get('/api/spirals/' + this.props.params.id).done(data =>
+      this.setState(() => parseSpiralData(data))
+    )
   }
 
   save = (e) => {
-    const canvasComponent = this.refs.canvas
     e.preventDefault()
+    const canvasComponent = this.refs.canvas
     const image = canvasComponent.getImage()
     http.multiPartPost('/api/spirals', {...this.state, image}, (err, res) => {
       console.log(arguments)

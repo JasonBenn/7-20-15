@@ -22,6 +22,6 @@ SpiralDetailContainer // GETs /spirals/:id
 
 ### TODO:
 
-* Add ReactRouter
 * Fix grody fields in SpiralForm.
 * Create scratch route - for testing components in isolation.
+* Validate inputs before state change
