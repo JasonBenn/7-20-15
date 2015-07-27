@@ -31,7 +31,8 @@ module.exports = {
     proxy: {
       '/api/*': 'http://localhost:4567/',
       headers: { "Access-Control-Allow-Origin": "*" }
-    }
+    },
+    noInfo: true
   },
 
   node: {
