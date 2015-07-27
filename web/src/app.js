@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Route, Link } from 'react-router'
-import { history } from 'react-router/lib/BrowserHistory'
+import BrowserHistory from 'react-router/lib/BrowserHistory'
 import { SpiralDetailContainer } from './components/SpiralDetailContainer'
 import { ThumbnailGridContainer } from './components/ThumbnailGridContainer'
 
@@ -19,7 +19,7 @@ class App extends React.Component {
 }
 
 React.render((
-  <Router history="history">
+  <Router history={new BrowserHistory()}>
     <Route path="/" component={App}>
       <Route path="spirals" component={ThumbnailGridContainer}>
         <Route path=":id" component={SpiralDetailContainer}/>
