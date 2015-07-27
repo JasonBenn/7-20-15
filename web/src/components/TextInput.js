@@ -7,9 +7,12 @@ export class TextInput extends React.Component {
     this.props.onChange(this.serialize(e.target.value))
   }
 
-  serialize(rawValue) {
-    const value = this.props.type === 'number' ? +rawValue : rawValue
-    return Map([[this.props.name, value]]).toJS()
+  serialize(value) {
+    return Map([[this.props.name, this.normalizeInputValue(value)]]).toJS()
+  }
+
+  normalizeInputValue(value) {
+    return this.props.type === 'number' ? +value : value
   }
 
   static defaultProps = {
