@@ -18,9 +18,10 @@ class App extends React.Component {
   }
 }
 
+// path="/" should be App
 React.render((
   <Router history={new BrowserHistory()}>
-    <Route path="/" component={App}>
+    <Route path="/" component={ThumbnailGridContainer}>
       <Route path="spirals" component={ThumbnailGridContainer}>
         <Route path=":id" component={SpiralDetailContainer}/>
       </Route>

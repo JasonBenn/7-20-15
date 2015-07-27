@@ -6,7 +6,8 @@ import { parseSpiralData } from '../utils'
 
 export class SpiralDetailContainer extends React.Component {
   componentDidMount() {
-    http.get('/api/spirals/' + this.props.params.id).done(data =>
+    // || 1 is a placeholder, delete once react-router is working
+    http.get('/api/spirals/' + (this.props.params.id || 1)).done(data =>
       this.setState(() => parseSpiralData(data))
     )
   }

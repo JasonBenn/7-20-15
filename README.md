@@ -25,7 +25,6 @@ SpiralDetailContainer // GETs /spirals/:id
 ### TODO:
 
 * Make React Router work
-* Implement ThumbnailGridContainer
 * Create scratch route - for testing components in isolation.
 * Improve grody `fields` in SpiralForm?
 * Validate inputs before state change

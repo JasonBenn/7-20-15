@@ -14,6 +14,7 @@ configure do
 end
 
 set :port, 4567
+set :public_folder, 'images'
 
 DB = PG.connect('postgres://jasonbenn@localhost/spirals')
 
@@ -26,7 +27,7 @@ namespace '/api' do
     end
 
     def spirals
-      DB.exec('SELECT * FROM spirals;')
+      DB.exec('SELECT * FROM spirals;').to_a
     rescue PG => err
       halt 400
     end
@@ -43,13 +44,13 @@ namespace '/api' do
   post '/spirals' do
 
     insert_row = <<-SQL
-    INSERT INTO spirals (email, thickness, grid_size, color, image_url)
-    VALUES ($1, $2, $3, $4, $5)
+    INSERT INTO spirals (email, thickness, grid_size, color)
+    VALUES ($1, $2, $3, $4)
     RETURNING id;
     SQL
 
     begin
-      res = DB.exec_params(insert_row, [params[:email], params[:thickness], params[:gridSize], params[:color], params[:imageUrl]])
+      res = DB.exec_params(insert_row, [params[:email], params[:thickness], params[:gridSize], params[:color]])
     rescue PG => err
       halt 503, "Insertion error!"
     end

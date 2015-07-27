@@ -20,12 +20,12 @@ class APITest < Test::Unit::TestCase
   def test_it_gets_a_spiral
     get '/api/spirals/1'
     assert_equal last_response.body, {
-        "modified_at": "2015-07-25 22:57:15.8726-07",
+        "modified_at": "2015-07-27 13:01:02.266803-07",
         "id": "1",
         "email": "jasoncbenn@gmail.com",
         "thickness": "5",
-        "grid_size": "30",
-        "color": "green",
+        "grid_size": "25",
+        "color": "black",
         "image_url": nil
       }.to_json
   end

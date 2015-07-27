@@ -30,6 +30,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/api/*': 'http://localhost:4567/',
+      '*.png': 'http://localhost:4567/',
       headers: { "Access-Control-Allow-Origin": "*" }
     },
     noInfo: true

@@ -1,0 +1,17 @@
+.grid {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.grid-item {
+  margin: 1em;
+  border: 1px solid black;
+
+  img {
+    width: 10em;
+  }
+
+  p {
+    white-space: nowrap;
+  }
+}
