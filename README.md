@@ -1,7 +1,6 @@
 ### Getting set up
 ```
-cd web && npm install
-cd api && bundle install
+(cd web && npm install) && (cd api && bundle install)
 ```
 
 ### Running
