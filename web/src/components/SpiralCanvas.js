@@ -7,7 +7,7 @@ export class SpiralCanvas extends React.Component {
   static propTypes = {
     height: React.PropTypes.number,
     width: React.PropTypes.number,
-    lineWidth: React.PropTypes.number,
+    thickness: React.PropTypes.number,
     gridSize: React.PropTypes.number,
     color: React.PropTypes.string
   }
@@ -15,7 +15,7 @@ export class SpiralCanvas extends React.Component {
   static defaultProps = {
     height: 500,
     width: 500,
-    lineWidth: 2,
+    thickness: 2,
     gridSize: 5,
     color: 'black'
   }
@@ -41,7 +41,7 @@ export class SpiralCanvas extends React.Component {
   paint(ctx) {
     this.clearCanvas(ctx)
     ctx.strokeStyle = this.props.color;
-    ctx.lineWidth = this.props.lineWidth
+    ctx.lineWidth = this.props.thickness
     ctx.beginPath()
     ctx.moveTo(topLeftX, topLeftY)
 
