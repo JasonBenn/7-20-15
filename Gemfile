@@ -4,7 +4,12 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem "sinatra-cross_origin"
 gem 'data_uri'
+
 gem 'pg'
+
 gem 'thor'
-gem 'rack-test'
 gem 'foreman'
+
+gem 'rack-test'
+gem 'terminal-notifier'
+gem 'test-unit-notify'

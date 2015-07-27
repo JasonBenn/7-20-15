@@ -2,6 +2,7 @@ ENV['RACK_ENV'] = 'test'
 
 require_relative '../api'
 require 'test/unit'
+require 'test/unit/notify'
 require 'rack/test'
 
 class APITest < Test::Unit::TestCase
