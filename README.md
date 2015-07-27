@@ -1,10 +1,9 @@
 ### Getting set up
-`npm install`
-`bundle install`
+`cd web && npm install`
+`cd api && bundle install`
 
 ### Running
-`webpack-dev-server --hot`
-`ruby app.rb`
+`foreman start`
 
 ### Component outline:
 ```

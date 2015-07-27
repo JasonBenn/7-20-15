@@ -35,7 +35,7 @@ module.exports = {
   },
 
   node: {
-    fs: 'empty' // fixes "Cannot resolve module 'fs' error"
+    fs: 'empty'
   }
 
 };

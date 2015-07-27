@@ -16,7 +16,7 @@ export class SpiralCanvas extends React.Component {
     height: 500,
     width: 500,
     lineWidth: 1,
-    gridSize: 10,
+    gridSize: 12,
     color: 'black'
   }
 
@@ -37,7 +37,7 @@ export class SpiralCanvas extends React.Component {
     ctx.moveTo(topLeftX, topLeftY)
     getSpiralPoints(this.props.gridSize).forEach(([row, col]) => {
       ctx.lineTo(
-        (col * widthScaleFactor) + topLeftX, 
+        (col * widthScaleFactor) + topLeftX,
         (row * heightScaleFactor) + topLeftY
       )
     })
@@ -47,7 +47,7 @@ export class SpiralCanvas extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     this.$el = React.findDOMNode(this)
     const ctx = this.$el.getContext('2d')
-    this.paint(ctx)    
+    this.paint(ctx)
   }
 
   componentDidMount() {
