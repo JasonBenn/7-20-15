@@ -3,16 +3,16 @@
 module.exports = {
   module: {
     loaders: [
-      { 
-        test: /\.js$/, 
+      {
+        test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel?stage=0' 
-      }, { 
+        loader: 'babel?stage=0'
+      }, {
         test: /\.scss/,
-        loader: 'style-loader!css-loader!sass-loader' 
-      }, { 
+        loader: 'style-loader!css-loader!sass-loader'
+      }, {
         test: /\.css$/,
-        loader: 'style-loader!css-loader' 
+        loader: 'style-loader!css-loader'
       }
     ]
   },
