@@ -17,14 +17,9 @@ export class SpiralDetailContainer extends React.Component {
     http.multiPartPost('/api/spirals', {...this.state, image}, (err, res) => {
       console.log(arguments)
     })
-
-    // To test serialize, comment the above and uncomment this:
-    // const args = this.refs.form.serialize()
-    // console.log('saveCanvas', args)
   }
 
   patch = (attrs) => {
-    // persist to backend?
     this.setState(attrs)
   }
 
