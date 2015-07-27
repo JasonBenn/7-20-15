@@ -1,3 +1,3 @@
-web: cd web && webpack-dev-server --hot
-api: cd api && ruby api.rb
+web: ./dev-serve-ui
+api: ./dev-serve-api
 test: watch "rspec api/test/api-test.rb" api/

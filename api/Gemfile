@@ -13,3 +13,7 @@ gem 'foreman'
 gem 'rack-test'
 gem 'terminal-notifier'
 gem 'test-unit-notify'
+
+group :development do
+  gem 'pry'
+end

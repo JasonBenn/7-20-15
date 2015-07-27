@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+cd web
+export PATH=./node_modules/.bin:$PATH
+webpack-dev-server --hot
