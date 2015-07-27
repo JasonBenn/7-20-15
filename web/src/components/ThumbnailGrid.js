@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/grid.scss'
+import { imageURLFromID } from '../utils'
 
 export class ThumbnailGrid extends React.Component {
   render() {
@@ -16,7 +17,7 @@ export class ThumbnailGrid extends React.Component {
       <div className="grid-item" key={key}>
         <img src={spiralData.id + '.png'} />
         <p>gridSize {spiralData.gridSize}</p>
-        <p>id {spiralData.id}</p>
+        <p>id {imageURLFromID(spiralData.id)}</p>
       </div>
     )
   }

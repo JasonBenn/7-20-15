@@ -13,3 +13,5 @@ export const normalizeValues = (obj, typeMapping) => fromJS(obj).map((v, k, iter
 }).toJS()
 
 export const parseSpiralData = (data) => camelizeKeys(normalizeValues(data, spiralDataTypes))
+
+export const imageURLFromID = (id) => `${id}.png`

@@ -33,6 +33,7 @@ module.exports = {
       '*.png': 'http://localhost:4567/',
       headers: { "Access-Control-Allow-Origin": "*" }
     },
+    historyApiFallback: true,
     noInfo: true
   },
 
